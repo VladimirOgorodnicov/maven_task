@@ -1,7 +1,5 @@
 package org.example;
 
-import org.xml.sax.ErrorHandler;
-
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -24,9 +22,9 @@ public class Calculator {
         } else if (operator == '/') {
             try{
                 curNum = stack.pop() / curNum;
-            }catch ()
+            }catch (ArithmeticException e)
             {
-                System.err.println("Error : your equation have ");
+                System.err.println("Error : your equation have mathematical paradigm , try again ");
             }
         } else if (operator == '*') {
             curNum *= stack.pop();
@@ -38,7 +36,7 @@ public class Calculator {
         Stack<Integer> stack = new Stack<>();
         char operator = '+';
 
-        int[] array = new int[2];
+        int[] array;
         while (currentPosition < equation.length) {
             if (equation[currentPosition] != ' ') {
                 if (Character.isDigit(equation[currentPosition])) {
