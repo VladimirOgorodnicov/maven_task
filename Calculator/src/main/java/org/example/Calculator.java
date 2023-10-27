@@ -36,7 +36,7 @@ public class Calculator {
         Stack<Integer> stack = new Stack<>();
         char operator = '+';
 
-        int[] array;
+        int[] array = new int[2];
         while (currentPosition < equation.length) {
             if (equation[currentPosition] != ' ') {
                 if (Character.isDigit(equation[currentPosition])) {
