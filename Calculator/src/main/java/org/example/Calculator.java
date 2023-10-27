@@ -24,9 +24,11 @@ public class Calculator {
         } else if (operator == '/') {
             try{
                 curNum = stack.pop() / curNum;
-            }catch ()
+            }catch (ArithmeticException e)
             {
-                System.err.println("Error : your equation have ");
+                InputHandler inputHandler = new InputHandler();
+                System.err.println("Error : your equation have mathematical paradigm , try again ");
+//                calculate(inputHandler.takeInput());
             }
         } else if (operator == '*') {
             curNum *= stack.pop();
@@ -38,7 +40,7 @@ public class Calculator {
         Stack<Integer> stack = new Stack<>();
         char operator = '+';
 
-        int[] array = new int[2];
+        int[] array;
         while (currentPosition < equation.length) {
             if (equation[currentPosition] != ' ') {
                 if (Character.isDigit(equation[currentPosition])) {
